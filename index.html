@@ -1,25 +1,163 @@
 <!DOCTYPE html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Innova Medical Supply · Puerto Rico</title>
-<meta name="description" content="Suministros médicos para hogares de envejecientes, clínicas y agencias de cuidado en Puerto Rico. Medical supplies for nursing homes, clinics, and home-care agencies in Puerto Rico.">
+<title>Innova Supply · Suministros médicos en Puerto Rico</title>
+<meta name="description" content="Innova Supply: suministros médicos para hogares de cuidado, agencias de cuidado en el hogar y facilidades de salud en Puerto Rico. Solicite su cotización.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 54 54%27%3E%3Crect width=%2754%27 height=%2754%27 rx=%2712%27 fill=%27%230b4f8a%27/%3E%3Crect x=%2721%27 y=%2710%27 width=%2712%27 height=%2734%27 rx=%273%27 fill=%27%23fff%27/%3E%3Crect x=%2710%27 y=%2721%27 width=%2734%27 height=%2712%27 rx=%273%27 fill=%27%23fff%27/%3E%3C/svg%3E">
 <style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(135deg,#0b4f8a,#127a9c);color:#fff;padding:24px}
-.card{max-width:640px;width:100%;text-align:center}
-.logo{font-size:44px;font-weight:800;letter-spacing:-1px}.logo span{color:#5fe0d6}
-.tag{font-size:12px;letter-spacing:2px;opacity:.8;margin-bottom:34px}
-h1{font-size:30px;margin:0 0 10px}p{font-size:17px;opacity:.92;line-height:1.5;margin:0 0 6px}
-.en{opacity:.75;font-size:15px}
-.cats{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:28px 0}
-.cats span{background:rgba(255,255,255,.14);border-radius:20px;padding:6px 12px;font-size:14px}
-a.btn{display:inline-block;background:#fff;color:#0b4f8a;font-weight:700;text-decoration:none;padding:14px 22px;border-radius:10px;margin-top:8px}
-.small{font-size:13px;opacity:.7;margin-top:28px}
-</style></head><body><div class="card">
-<div class="logo">Innova<span>.</span></div><div class="tag">MEDICAL SUPPLY · PUERTO RICO</div>
-<h1>¡Muy pronto!</h1>
-<p>Suministros médicos para hogares de envejecientes, agencias de cuidado en el hogar y clínicas en Puerto Rico.</p>
-<p class="en">Coming soon: medical supplies for nursing homes, home-care agencies, and clinics in Puerto Rico.</p>
-<div class="cats"><span>Incontinencia</span><span>Guantes</span><span>Gasas</span><span>Heridas y ostomía</span><span>Sillas de ruedas</span><span>Sillas de baño</span><span>Equipo de diagnóstico</span></div>
-<p>¿Necesita una cotización? · <span class="en">Need a quote?</span></p>
-<a class="btn" href="mailto:innova_pr1@yahoo.com?subject=Solicitud%20de%20cotizaci%C3%B3n%20%2F%20Quote%20request">innova_pr1@yahoo.com</a>
-<div class="small">© 2026 Innova · innova.supply</div>
-</div></body></html>
+:root{--blue:#0b4f8a;--teal:#14a3a3;--light:#eef6fa;--ink:#1d2a36;--muted:#5b6b7a}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#fff}
+a{color:inherit;text-decoration:none}
+.top{background:var(--blue);color:#fff;font-size:13px;padding:6px 24px;display:flex;justify-content:space-between}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid #e3e9ef;position:sticky;top:0;background:#fff;z-index:5}
+.logo{display:flex;align-items:center;gap:10px}.logo .mark{width:40px;height:40px;border-radius:9px;background:var(--blue);position:relative;flex:none}
+.logo .mark:before,.logo .mark:after{content:"";position:absolute;background:#fff;border-radius:2px}.logo .mark:before{width:9px;height:25px;left:15.5px;top:7.5px}.logo .mark:after{width:25px;height:9px;left:7.5px;top:15.5px}
+.logo .t1{font-weight:800;font-size:24px;letter-spacing:-.5px;color:var(--blue);line-height:1}.logo .t2{font-size:11px;font-weight:700;letter-spacing:5px;color:var(--teal);margin-top:3px;line-height:1}
+.err{color:#c0392b;font-size:13px;margin-top:8px;display:none}.empty{color:var(--muted);text-align:center;padding:18px}
+nav{display:flex;gap:22px;font-size:15px}nav a:hover{color:var(--teal)}
+.hright{display:flex;gap:12px;align-items:center}
+.lang{border:1px solid #cdd8e2;border-radius:20px;overflow:hidden;display:flex}.lang button{border:0;background:#fff;padding:6px 10px;font-weight:600;cursor:pointer}.lang button.on{background:var(--blue);color:#fff}
+.qbtn{background:var(--teal);color:#fff;border:0;border-radius:8px;padding:9px 14px;font-weight:700;cursor:pointer}
+.badge{background:#fff;color:var(--teal);border-radius:10px;padding:1px 7px;margin-left:6px}
+.hero{background:linear-gradient(120deg,var(--blue),#127a9c);color:#fff;padding:56px 24px;display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
+.hero h1{font-size:38px;margin:0 0 12px}.hero p{font-size:17px;opacity:.92;max-width:560px}
+.hero .cta{display:flex;gap:12px;margin-top:20px}.btn{padding:12px 18px;border-radius:8px;font-weight:700;border:0;cursor:pointer;font-size:15px}
+.btn.w{background:#fff;color:var(--blue)}.btn.o{background:transparent;color:#fff;border:2px solid #fff}.btn.t{background:var(--teal);color:#fff}
+.hcard{background:rgba(255,255,255,.12);border-radius:14px;padding:20px}.hcard div{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.2)}.hcard div:last-child{border:0}
+section{padding:40px 24px}h2{font-size:26px;margin:0 0 6px;color:var(--blue)}.sub{color:var(--muted);margin:0 0 22px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cat{border:1px solid #e3e9ef;border-radius:12px;overflow:hidden;cursor:pointer;transition:.15s}.cat:hover{box-shadow:0 6px 18px rgba(0,0,0,.08);transform:translateY(-2px)}
+.ph{background:repeating-linear-gradient(45deg,#e8f1f7,#e8f1f7 10px,#f3f8fb 10px,#f3f8fb 20px);height:120px;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#7d93a6;font-size:12px}
+.ph b{font-size:34px}.cat .n{padding:12px;font-weight:700}.cat .n small{display:block;font-weight:400;color:var(--muted);margin-top:3px}
+.how{background:var(--light)}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{background:#fff;border-radius:12px;padding:20px}.step .num{width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:10px}
+footer{background:var(--ink);color:#c9d4de;padding:28px 24px;font-size:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}footer b{color:#fff}
+.view{display:none}.view.on{display:block}
+.crumb{color:var(--muted);font-size:14px;margin-bottom:14px}
+.plist{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.prod{border:1px solid #e3e9ef;border-radius:12px;overflow:hidden}.prod .ph{height:150px}.prod .b{padding:14px}.prod h4{margin:0 0 4px}.prod .meta{font-size:13px;color:var(--muted);margin-bottom:10px}
+.prod .price{font-size:13px;color:var(--teal);font-weight:700;margin-bottom:10px}
+.row{display:flex;gap:8px;align-items:center}select,input,textarea{border:1px solid #cdd8e2;border-radius:8px;padding:9px;font-size:14px;font-family:inherit}
+.qty{width:70px}
+.pd{display:grid;grid-template-columns:1fr 1fr;gap:30px}.pd .ph{height:340px;border-radius:12px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.chip{border:1px solid #cdd8e2;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer}.chip.on{border-color:var(--teal);background:#e6f7f7;color:#0c7c7c;font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:10px;border-bottom:1px solid #e3e9ef;text-align:left}th{color:var(--muted);font-weight:600}
+.qwrap{display:grid;grid-template-columns:1fr 1fr;gap:28px}.form label{display:block;font-size:13px;font-weight:600;margin:12px 0 4px}.form input,.form select,.form textarea{width:100%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.note{background:#fff8e6;border:1px solid #f1d58a;border-radius:10px;padding:12px;font-size:13px;margin-top:14px}
+.box{border:1px solid #e3e9ef;border-radius:12px;padding:18px}
+@media(max-width:800px){nav{display:none}.hero{grid-template-columns:1fr;padding:36px 18px}.hero h1{font-size:28px}.grid{grid-template-columns:repeat(2,1fr)}.steps,.plist,.pd,.qwrap,footer{grid-template-columns:1fr}.top{font-size:11px;padding:6px 14px}header{padding:12px 14px}section{padding:28px 14px}.qbtn .lbl{display:none}}
+</style></head><body>
+<div class="top"><span data-es="Entregas en todo Puerto Rico · Ventas a instituciones y profesionales" data-en="Delivery across Puerto Rico · Sales to facilities and professionals"></span><span>innova_pr1@yahoo.com</span></div>
+<header><a class="logo" href="#" onclick="return go('home')" aria-label="Innova Supply"><span class="mark"></span><span><div class="t1">Innova</div><div class="t2">SUPPLY</div></span></a>
+<nav><a href="#" onclick="go('home')" data-es="Inicio" data-en="Home"></a><a href="#" onclick="go('cat')" data-es="Catálogo" data-en="Catalog"></a><a href="#" onclick="go('home','how')" data-es="Cómo cotizar" data-en="How quotes work"></a><a href="#" onclick="go('home','about')" data-es="Nosotros" data-en="About"></a></nav>
+<div class="hright"><div class="lang"><button id="bes" onclick="setLang('es')">ES</button><button id="ben" onclick="setLang('en')">EN</button></div>
+<button class="qbtn" onclick="go('quote')">🧾 <span class="lbl" data-es="Mi cotización" data-en="My quote"></span><span class="badge" id="qc">0</span></button></div></header>
+
+<div id="home" class="view on">
+<div class="hero"><div><h1 data-es="Suministros médicos para hogares de cuidado, agencias y facilidades de salud" data-en="Medical supplies for care homes, home-care agencies, and healthcare facilities"></h1>
+<p data-es="Desechables, equipo y cuidado de heridas a precio de volumen. Arme su lista, envíela y le respondemos con una cotización en 1 día laborable." data-en="Disposables, equipment, and wound care at volume pricing. Build your list, send it, and we reply with a quote within 1 business day."></p>
+<div class="cta"><button class="btn w" onclick="go('cat')" data-es="Ver catálogo" data-en="Browse catalog"></button><button class="btn o" onclick="go('quote')" data-es="Pedir cotización" data-en="Request a quote"></button></div></div>
+<div class="hcard"><div data-es="✓ Precios por volumen para instituciones" data-en="✓ Volume pricing for facilities"></div><div data-es="✓ Entregas recurrentes semanales o mensuales" data-en="✓ Recurring weekly or monthly deliveries"></div><div data-es="✓ Productos de marcas reconocidas" data-en="✓ Trusted brand-name products"></div><div data-es="✓ Servicio en español e inglés" data-en="✓ Service in Spanish and English"></div></div></div>
+<section><h2 data-es="Categorías" data-en="Categories"></h2><p class="sub" data-es="Seleccione una categoría para ver productos y añadirlos a su cotización." data-en="Pick a category to see products and add them to your quote."></p><div class="grid" id="cats"></div></section>
+<section class="how" id="how"><h2 data-es="Cómo funciona" data-en="How it works"></h2><p class="sub" data-es="Sin carrito ni pago en línea: solo cotizaciones." data-en="No cart or online payment, just quotes."></p>
+<div class="steps"><div class="step"><div class="num">1</div><b data-es="Arme su lista" data-en="Build your list"></b><p data-es="Añada productos, tamaños y cantidades a su cotización." data-en="Add products, sizes, and quantities to your quote."></p></div>
+<div class="step"><div class="num">2</div><b data-es="Envíela" data-en="Send it"></b><p data-es="Díganos su facilidad, municipio y frecuencia de pedido." data-en="Tell us your facility, town, and how often you order."></p></div>
+<div class="step"><div class="num">3</div><b data-es="Reciba su precio" data-en="Get your price"></b><p data-es="Le enviamos precios por volumen y fecha de entrega." data-en="We send volume pricing and a delivery date."></p></div></div></section>
+<section id="about"><h2 data-es="Sobre Innova" data-en="About Innova"></h2><p class="sub" style="max-width:760px" data-es="Innova Supply es una empresa puertorriqueña que suple a hogares de cuidado, agencias de cuidado en el hogar y otras facilidades de salud en Puerto Rico con productos de calidad y entregas confiables." data-en="Innova Supply is a Puerto Rican company supplying care homes, home-care agencies, and other healthcare facilities in Puerto Rico with quality products and reliable delivery."></p></section>
+</div>
+
+<div id="cat" class="view"><section><div class="crumb" data-es="Inicio › Catálogo" data-en="Home › Catalog"></div>
+<div class="row" style="justify-content:space-between;margin-bottom:16px"><h2 id="catTitle"></h2><select id="catSel" onchange="showCat(this.value)"></select></div>
+<div class="plist" id="plist"></div></section></div>
+
+<div id="product" class="view"><section><div class="crumb" id="pcrumb"></div><div class="pd">
+<div class="ph" id="pimg"></div>
+<div><h2 id="pname"></h2><div class="meta" id="pmeta" style="color:var(--muted)"></div>
+<p id="pdesc"></p>
+<b data-es="Tamaño" data-en="Size"></b><div class="chips" id="psizes"></div>
+<b data-es="Empaque" data-en="Pack"></b><div class="chips" id="ppacks"></div>
+<div class="row" style="margin-top:14px"><input class="qty" type="number" id="pqty" value="10" min="1"><span data-es="cajas" data-en="cases"></span><button class="btn t" onclick="addFromPD()" data-es="Añadir a cotización" data-en="Add to quote"></button></div>
+<div class="note" data-es="💬 Precio por volumen disponible al cotizar." data-en="💬 Volume pricing given with your quote."></div>
+</div></div></section></div>
+
+<div id="quote" class="view"><section><h2 data-es="Solicitud de cotización" data-en="Quote request"></h2><p class="sub" data-es="Revise su lista y complete sus datos. Le respondemos en 1 día laborable." data-en="Review your list and fill in your details. We reply within 1 business day."></p>
+<div class="qwrap"><div class="box"><b data-es="Productos" data-en="Products"></b><table><thead><tr><th data-es="Producto" data-en="Product"></th><th data-es="Opción" data-en="Option"></th><th data-es="Cant." data-en="Qty"></th><th></th></tr></thead><tbody id="qrows"></tbody></table>
+<button class="btn" style="margin-top:12px;background:var(--light);color:var(--blue)" onclick="go('cat')" data-es="+ Añadir más productos" data-en="+ Add more products"></button></div>
+<div class="box form"><b data-es="Datos de la facilidad" data-en="Facility details"></b>
+<label data-es="Nombre de la facilidad *" data-en="Facility name *"></label><input id="fname" placeholder="Hogar Ejemplo Inc.">
+<div class="two"><div><label data-es="Tipo de facilidad" data-en="Facility type"></label><select id="ftype"></select></div><div><label data-es="Municipio *" data-en="Municipality *"></label><select id="muni"></select></div></div>
+<div class="two"><div><label data-es="Persona de contacto *" data-en="Contact person *"></label><input id="contact" placeholder="Nombre y apellido"></div><div><label data-es="Teléfono *" data-en="Phone *"></label><input id="phone" type="tel" placeholder="787-555-0100"></div></div>
+<label data-es="Correo electrónico" data-en="Email"></label><input id="email" type="email" placeholder="compras@ejemplo.com">
+<label data-es="¿Con qué frecuencia ordena?" data-en="How often do you order?"></label><select id="freq"></select>
+<label data-es="Notas (marcas preferidas, fecha deseada)" data-en="Notes (preferred brands, needed-by date)"></label><textarea id="notes" rows="3"></textarea>
+<button class="btn t" style="width:100%;margin-top:14px" onclick="sendQuote()" data-es="Enviar solicitud de cotización" data-en="Send quote request"></button>
+<div class="err" id="qerr"></div>
+<p style="font-size:12px;color:var(--muted);margin:8px 0 0" data-es="Al enviar se abrirá su aplicación de correo con la solicitud lista para innova_pr1@yahoo.com." data-en="Sending opens your email app with the request ready to go to innova_pr1@yahoo.com."></p>
+<div class="note" data-es="Solo entregas dentro de Puerto Rico. Los precios finales incluyen el IVU de 11.5% cuando aplique. No vendemos productos que requieren receta." data-en="Delivery within Puerto Rico only. Final prices include the 11.5% PR sales tax (IVU) where it applies. We don't sell prescription items."></div>
+</div></div></section></div>
+
+<footer><div><b>Innova Supply</b><br><span data-es="Puerto Rico" data-en="Puerto Rico"></span><br><a href="mailto:innova_pr1@yahoo.com" style="text-decoration:underline">innova_pr1@yahoo.com</a></div><div><b data-es="Clientes" data-en="Customers"></b><br><span data-es="Hogares de cuidado · Hogares sustitutos · Centros de cuidado diurno · Agencias de cuidado en el hogar · Hospicios · Centros de diálisis" data-en="Care homes · Substitute homes · Adult day centers · Home-care agencies · Hospices · Dialysis centers"></span></div><div><b data-es="Cotizaciones" data-en="Quotes"></b><br><span data-es="Respondemos en 1 día laborable. Entregas solo en Puerto Rico." data-en="We reply within 1 business day. Delivery within Puerto Rico only."></span><br><span style="opacity:.7">© 2026 Innova Supply · innova.supply</span></div></footer>
+
+<script>
+const CATS=[
+{id:'inc',i:'🩲',es:'Incontinencia',en:'Incontinence',ses:'Pañales, protectores, toallitas',sen:'Briefs, underpads, wipes',p:[
+ {es:'Pañal adulto con cintas',en:'Adult brief with tabs',s:['S','M','L','XL'],k:['Caja 4×18','Caja 6×12'],sku:'INC-BR-001'},
+ {es:'Protector de cama desechable',en:'Disposable underpad',s:['23×36','30×30','30×36'],k:['Caja 150','Caja 100'],sku:'INC-UP-002'},
+ {es:'Toallitas húmedas para adultos',en:'Adult wet wipes',s:['8×12'],k:['Caja 12×48'],sku:'INC-WW-003'},
+ {es:'Paños de baño desechables',en:'Disposable washcloths',s:['10×13'],k:['Caja 500'],sku:'INC-WC-004'}]},
+{id:'ppe',i:'🧤',es:'Guantes y protección',en:'Gloves & PPE',ses:'Nitrilo, batas de aislamiento',sen:'Nitrile, isolation gowns',p:[
+ {es:'Guantes de nitrilo sin polvo',en:'Powder-free nitrile gloves',s:['S','M','L','XL'],k:['Caja 10×100'],sku:'PPE-NG-010'},
+ {es:'Bata de aislamiento',en:'Isolation gown',s:['Universal','XL'],k:['Caja 50','Caja 100'],sku:'PPE-IG-011'}]},
+{id:'wound',i:'🩹',es:'Heridas y ostomía',en:'Wound & ostomy care',ses:'Gasas, úlceras, colostomía',sen:'Gauze, ulcer care, ostomy',p:[
+ {es:'Gasa estéril 4×4',en:'Sterile gauze 4×4',s:['4×4','2×2'],k:['Caja 25×2','Caja 100'],sku:'WND-GZ-020'},
+ {es:'Esponja no tejida',en:'Non-woven sponge',s:['4×4','2×2'],k:['Paquete 200'],sku:'WND-SP-021'},
+ {es:'Apósito de espuma para úlceras',en:'Foam dressing for ulcers',s:['4×4','6×6'],k:['Caja 10'],sku:'WND-FD-022'},
+ {es:'Bolsa de colostomía drenable',en:'Drainable ostomy pouch',s:['Corte 57mm','Corte 70mm'],k:['Caja 10'],sku:'WND-OS-023'}]},
+{id:'mob',i:'♿',es:'Sillas de ruedas',en:'Wheelchairs',ses:'Estándar y livianas',sen:'Standard and lightweight',p:[
+ {es:'Silla de ruedas estándar 18"',en:'Standard wheelchair 18"',s:['16"','18"','20"'],k:['Unidad'],sku:'MOB-WC-030'},
+ {es:'Silla de ruedas liviana',en:'Lightweight wheelchair',s:['18"'],k:['Unidad'],sku:'MOB-WC-031'}]},
+{id:'bath',i:'🚿',es:'Sillas de baño',en:'Shower chairs',ses:'Con y sin espaldar',sen:'With or without back',p:[
+ {es:'Silla de baño con espaldar',en:'Shower chair with back',s:['Estándar'],k:['Unidad','Caja 2'],sku:'BTH-SC-040'},
+ {es:'Banco de transferencia',en:'Transfer bench',s:['Estándar'],k:['Unidad'],sku:'BTH-TB-041'}]},
+{id:'exam',i:'🛏️',es:'Mesas y papel de examen',en:'Exam tables & paper',ses:'Mesas, papel crepé',sen:'Tables, crepe paper',p:[
+ {es:'Mesa de examen',en:'Exam table',s:['Estándar'],k:['Unidad'],sku:'EXM-TB-050'},
+ {es:'Papel para mesa de examen',en:'Exam table paper',s:['18"','21"'],k:['Caja 12 rollos'],sku:'EXM-PP-051'}]},
+{id:'diag',i:'🩺',es:'Diagnóstico',en:'Diagnostics',ses:'Estetoscopios, esfigmomanómetros',sen:'Stethoscopes, BP cuffs',p:[
+ {es:'Estetoscopio de doble campana',en:'Dual-head stethoscope',s:['Adulto','Pediátrico'],k:['Unidad'],sku:'DGN-ST-060'},
+ {es:'Esfigmomanómetro aneroide',en:'Aneroid BP cuff',s:['Adulto','Adulto grande'],k:['Unidad'],sku:'DGN-BP-061'}]},
+{id:'scale',i:'⚖️',es:'Balanzas',en:'Scales',ses:'Digitales y de pedestal',sen:'Digital and column',p:[
+ {es:'Balanza digital de piso',en:'Digital floor scale',s:['Hasta 400 lb'],k:['Unidad'],sku:'SCL-DF-070'},
+ {es:'Balanza de pedestal con estadiómetro',en:'Column scale with height rod',s:['Hasta 500 lb'],k:['Unidad'],sku:'SCL-CL-071'}]}];
+const FT={es:['Hogar de cuidado','Hogar sustituto','Centro de cuidado diurno para adultos (CAMPEA)','Agencia de cuidado en el hogar','Hospicio','Centro de diálisis','Tienda de efectos médicos','Otro'],en:['Care home (hogar de cuidado)','Substitute home (hogar sustituto)','Adult day center (CAMPEA)','Home-care agency','Hospice','Dialysis center','Medical supply store','Other']};
+const FQ={es:['Semanal','Cada 2 semanas','Mensual','Una sola vez'],en:['Weekly','Every 2 weeks','Monthly','One time']};
+const MUN=['Adjuntas','Aguada','Aguadilla','Aguas Buenas','Aibonito','Añasco','Arecibo','Arroyo','Barceloneta','Barranquitas','Bayamón','Cabo Rojo','Caguas','Camuy','Canóvanas','Carolina','Cataño','Cayey','Ceiba','Ciales','Cidra','Coamo','Comerío','Corozal','Culebra','Dorado','Fajardo','Florida','Guánica','Guayama','Guayanilla','Guaynabo','Gurabo','Hatillo','Hormigueros','Humacao','Isabela','Jayuya','Juana Díaz','Juncos','Lajas','Lares','Las Marías','Las Piedras','Loíza','Luquillo','Manatí','Maricao','Maunabo','Mayagüez','Moca','Morovis','Naguabo','Naranjito','Orocovis','Patillas','Peñuelas','Ponce','Quebradillas','Rincón','Río Grande','Sabana Grande','Salinas','San Germán','San Juan','San Lorenzo','San Sebastián','Santa Isabel','Toa Alta','Toa Baja','Trujillo Alto','Utuado','Vega Alta','Vega Baja','Vieques','Villalba','Yabucoa','Yauco'];
+let L='es',Q=JSON.parse(localStorage.getItem('innovaQ')||'[]'),curCat='inc',curP=null,selS=null,selK=null;
+const t=o=>o[L];
+function setLang(l){L=l;document.documentElement.lang=l;bes.className=l==='es'?'on':'';ben.className=l==='en'?'on':'';document.querySelectorAll('[data-es]').forEach(e=>e.textContent=e.dataset[l]);render()}
+function go(v,anchor){document.querySelectorAll('.view').forEach(e=>e.classList.remove('on'));document.getElementById(v).classList.add('on');if(v==='cat')showCat(curCat);if(anchor)setTimeout(()=>document.getElementById(anchor).scrollIntoView(),0);else scrollTo(0,0);render();return false}
+function ph(i,label){return `<b>${i}</b>${label||(L==='es'?'Foto próximamente':'Photo coming soon')}`}
+function showCat(id){curCat=id;const c=CATS.find(x=>x.id===id);catTitle.textContent=t(c);catSel.innerHTML=CATS.map(x=>`<option value="${x.id}" ${x.id===id?'selected':''}>${t(x)}</option>`).join('');
+plist.innerHTML=c.p.map((p,i)=>`<div class="prod"><div class="ph" style="cursor:pointer" onclick="showP('${id}',${i})">${ph(c.i)}</div><div class="b"><h4 style="cursor:pointer" onclick="showP('${id}',${i})">${t(p)}</h4><div class="meta">SKU ${p.sku} · ${L==='es'?'Marca al cotizar':'Brand on quote'}</div><div class="price">${L==='es'?'Precio por cotización':'Price on quote'}</div><div class="row"><select id="s${i}">${p.s.map(s=>`<option>${s}</option>`).join('')}</select><input class="qty" type="number" id="q${i}" value="10"><button class="btn t" style="padding:9px 12px" onclick="add('${id}',${i},s${i}.value,'${p.k[0]}',+q${i}.value)">+</button></div></div></div>`).join('')}
+function showP(c,i){curCat=c;curP=i;const C=CATS.find(x=>x.id===c),p=C.p[i];selS=p.s[0];selK=p.k[0];go('product')}
+function renderP(){if(curP===null)return;const C=CATS.find(x=>x.id===curCat),p=C.p[curP];pcrumb.textContent=(L==='es'?'Inicio › Catálogo › ':'Home › Catalog › ')+t(C);pimg.innerHTML=ph(C.i);pname.textContent=t(p);pmeta.textContent=`SKU ${p.sku} · ${L==='es'?'Marca al cotizar':'Brand on quote'}`;
+pdesc.textContent=L==='es'?'Elija tamaño, empaque y cantidad, y añádalo a su cotización. Le confirmamos marca, especificaciones y precio por volumen al cotizar.':'Pick a size, pack, and quantity, and add it to your quote. We confirm brand, specs, and volume pricing with your quote.';
+psizes.innerHTML=p.s.map(s=>`<span class="chip ${s===selS?'on':''}" onclick="selS='${s}';renderP()">${s}</span>`).join('');ppacks.innerHTML=p.k.map(k=>`<span class="chip ${k===selK?'on':''}" onclick="selK='${k}';renderP()">${k}</span>`).join('')}
+function addFromPD(){add(curCat,curP,selS,selK,+pqty.value)}
+function add(c,p,s,k,q){if(!(q>0))q=1;Q.push({c,p,s,k,q});save();render();const b=document.querySelector('.qbtn');b.style.transform='scale(1.1)';setTimeout(()=>b.style.transform='',200)}
+function save(){localStorage.setItem('innovaQ',JSON.stringify(Q))}
+function render(){qc.textContent=Q.length;cats.innerHTML=CATS.map(c=>`<div class="cat" onclick="curCat='${c.id}';go('cat')"><div class="ph"><b>${c.i}</b></div><div class="n">${t(c)}<small>${L==='es'?c.ses:c.sen}</small></div></div>`).join('');
+qrows.innerHTML=Q.map((r,i)=>{const p=CATS.find(x=>x.id===r.c).p[r.p];return `<tr><td>${t(p)}<br><small style="color:#5b6b7a">${p.sku}</small></td><td>${r.s} · ${r.k}</td><td><input class="qty" type="number" value="${r.q}" onchange="Q[${i}].q=Math.max(1,+this.value);save()"></td><td><a href="#" onclick="Q.splice(${i},1);save();render();return false" style="color:#c0392b">✕</a></td></tr>`}).join('')||`<tr><td colspan="4" class="empty">${L==='es'?'Su lista está vacía. Añada productos desde el catálogo, o describa lo que necesita en Notas.':'Your list is empty. Add products from the catalog, or describe what you need in Notes.'}</td></tr>`;
+const fi=ftype.selectedIndex,qi=freq.selectedIndex,mi=muni.selectedIndex;ftype.innerHTML=FT[L].map(x=>`<option>${x}</option>`).join('');freq.innerHTML=FQ[L].map(x=>`<option>${x}</option>`).join('');muni.innerHTML=`<option value="">${L==='es'?'Seleccione…':'Select…'}</option>`+MUN.map(x=>`<option>${x}</option>`).join('');if(fi>0)ftype.selectedIndex=fi;if(qi>0)freq.selectedIndex=qi;if(mi>0)muni.selectedIndex=mi;
+if(document.getElementById('cat').classList.contains('on'))showCat(curCat);renderP()}
+
+function sendQuote(){const v=id=>document.getElementById(id).value.trim();const es=L==='es';
+if(!v('fname')||!v('contact')||!v('phone')||!muni.value){qerr.textContent=es?'Complete nombre de la facilidad, persona de contacto, teléfono y municipio.':'Please fill in facility name, contact person, phone, and municipality.';qerr.style.display='block';return}
+if(!Q.length&&!v('notes')){qerr.textContent=es?'Añada al menos un producto o describa lo que necesita en Notas.':'Add at least one product or describe what you need in Notes.';qerr.style.display='block';return}
+qerr.style.display='none';
+const lines=Q.map((r,i)=>{const C=CATS.find(x=>x.id===r.c),p=C.p[r.p];return `${i+1}. ${p.es} / ${p.en} (SKU ${p.sku}) - ${r.s}, ${r.k} - Cant./Qty: ${r.q}`});
+const body=[es?'Solicitud de cotización - Innova Supply':'Quote request - Innova Supply','',
+`Facilidad / Facility: ${v('fname')}`,`Tipo / Type: ${FT.es[ftype.selectedIndex]}`,`Municipio: ${muni.value}`,`Contacto / Contact: ${v('contact')}`,`Teléfono / Phone: ${v('phone')}`,`Email: ${v('email')||'-'}`,`Frecuencia / Frequency: ${FQ.es[freq.selectedIndex]}`,'',
+'Productos / Products:',...(lines.length?lines:['-']),'',`Notas / Notes: ${v('notes')||'-'}`].join('\n');
+const subj=`Solicitud de cotización / Quote request - ${v('fname')}`;
+location.href=`mailto:innova_pr1@yahoo.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`}
+const P=new URLSearchParams(location.search);setLang(P.get('lang')||'es');if(P.get('view')==='product')showP('inc',0);else if(P.get('view'))go(P.get('view'));
+</script></body></html>
