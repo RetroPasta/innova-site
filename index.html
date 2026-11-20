@@ -93,9 +93,9 @@ table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:10px;bord
 <label data-es="Correo electrónico" data-en="Email"></label><input id="email" type="email" placeholder="compras@ejemplo.com">
 <label data-es="¿Con qué frecuencia ordena?" data-en="How often do you order?"></label><select id="freq"></select>
 <label data-es="Notas (marcas preferidas, fecha deseada)" data-en="Notes (preferred brands, needed-by date)"></label><textarea id="notes" rows="3"></textarea>
-<button class="btn t" style="width:100%;margin-top:14px" onclick="sendQuote()" data-es="Enviar solicitud de cotización" data-en="Send quote request"></button>
-<div class="err" id="qerr"></div>
-<p style="font-size:12px;color:var(--muted);margin:8px 0 0" data-es="Al enviar se abrirá su aplicación de correo con la solicitud lista para innova_pr1@yahoo.com." data-en="Sending opens your email app with the request ready to go to innova_pr1@yahoo.com."></p>
+<button class="btn t" style="width:100%;margin-top:14px" id="qsend" onclick="sendQuote()" data-es="Enviar solicitud de cotización" data-en="Send quote request"></button>
+<div class="err" id="qerr"></div><div id="qok" style="display:none;margin-top:12px;padding:14px;border-radius:10px;background:#e8f6ef;color:#14532d;font-size:16px"></div>
+<p style="font-size:12px;color:var(--muted);margin:8px 0 0" data-es="Su solicitud nos llega directamente. También puede llamarnos al 787-638-4220." data-en="Your request comes straight to us. You can also call us at 787-638-4220."></p>
 <div class="note" data-es="Solo entregas dentro de Puerto Rico. Los precios finales incluyen el IVU de 11.5% cuando aplique. No vendemos productos que requieren receta." data-en="Delivery within Puerto Rico only. Final prices include the 11.5% PR sales tax (IVU) where it applies. We don't sell prescription items."></div>
 </div></div></section></div>
 
@@ -169,12 +169,20 @@ if(document.getElementById('cat').classList.contains('on'))showCat(curCat);rende
 function sendQuote(){const v=id=>document.getElementById(id).value.trim();const es=L==='es';
 if(!v('fname')||!v('contact')||!v('phone')||!muni.value){qerr.textContent=es?'Complete nombre de la facilidad, persona de contacto, teléfono y municipio.':'Please fill in facility name, contact person, phone, and municipality.';qerr.style.display='block';return}
 if(!Q.length&&!v('notes')){qerr.textContent=es?'Añada al menos un producto o describa lo que necesita en Notas.':'Add at least one product or describe what you need in Notes.';qerr.style.display='block';return}
-qerr.style.display='none';
+qerr.style.display='none';qok.style.display='none';
 const lines=Q.map((r,i)=>{const C=CATS.find(x=>x.id===r.c),p=C.p[r.p];return `${i+1}. ${p.es} / ${p.en} (SKU ${p.sku}) - ${r.s}, ${r.k} - Cant./Qty: ${r.q}`});
 const body=[es?'Solicitud de cotización - Innova Supply':'Quote request - Innova Supply','',
 `Facilidad / Facility: ${v('fname')}`,`Tipo / Type: ${FT.es[ftype.selectedIndex]}`,`Municipio: ${muni.value}`,`Contacto / Contact: ${v('contact')}`,`Teléfono / Phone: ${v('phone')}`,`Email: ${v('email')||'-'}`,`Frecuencia / Frequency: ${FQ.es[freq.selectedIndex]}`,'',
 'Productos / Products:',...(lines.length?lines:['-']),'',`Notas / Notes: ${v('notes')||'-'}`].join('\n');
 const subj=`Solicitud de cotización / Quote request - ${v('fname')}`;
-location.href=`mailto:innova_pr1@yahoo.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`}
+const mail=()=>location.href=`mailto:innova_pr1@yahoo.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+const em=v('email'),payload={_subject:subj,Facilidad:v('fname'),Tipo:FT.es[ftype.selectedIndex],Municipio:muni.value,Contacto:v('contact'),Telefono:v('phone'),Email:em||'-',Frecuencia:FQ.es[freq.selectedIndex],Productos:(lines.length?lines:['-']).join('\n'),Notas:v('notes')||'-',Idioma:L,message:body};
+if(/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em))payload.email=em;
+qsend.disabled=true;qsend.textContent=es?'Enviando…':'Sending…';
+fetch('https://formspree.io/f/xwloqjjw',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+.then(r=>{if(!r.ok)throw 0;Q=[];save();render();['fname','contact','phone','email','notes'].forEach(id=>document.getElementById(id).value='');
+qok.textContent=es?'¡Gracias! Recibimos su solicitud y le enviaremos su cotización en 1 día laborable.':'Thank you! We received your request and will send your quote within 1 business day.';qok.style.display='block';qok.scrollIntoView({block:'center'})})
+.catch(()=>{qerr.textContent=es?'No pudimos enviar en este momento. Llámenos al 787-638-4220 o envíe por correo (se abrirá su aplicación de correo).':'We could not send right now. Call us at 787-638-4220 or send by email (your email app will open).';qerr.style.display='block';setTimeout(mail,1500)})
+.finally(()=>{qsend.disabled=false;qsend.textContent=qsend.dataset[L]})}
 const P=new URLSearchParams(location.search);setLang(P.get('lang')||'es');if(P.get('view')==='product')showP('inc',0);else if(P.get('view'))go(P.get('view'));
 </script></body></html>
