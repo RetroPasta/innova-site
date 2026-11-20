@@ -176,7 +176,7 @@ const body=[es?'Solicitud de cotización - Innova Supply':'Quote request - Innov
 'Productos / Products:',...(lines.length?lines:['-']),'',`Notas / Notes: ${v('notes')||'-'}`].join('\n');
 const subj=`Solicitud de cotización / Quote request - ${v('fname')}`;
 const mail=()=>location.href=`mailto:innova_pr1@yahoo.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
-const em=v('email'),payload={_subject:subj,Facilidad:v('fname'),Tipo:FT.es[ftype.selectedIndex],Municipio:muni.value,Contacto:v('contact'),Telefono:v('phone'),Email:em||'-',Frecuencia:FQ.es[freq.selectedIndex],Productos:(lines.length?lines:['-']).join('\n'),Notas:v('notes')||'-',Idioma:L,message:body};
+const em=v('email'),payload={_subject:subj,Facilidad:v('fname'),Tipo:FT.es[ftype.selectedIndex],Municipio:muni.value,Contacto:v('contact'),Telefono:v('phone'),Correo:em||'-',Frecuencia:FQ.es[freq.selectedIndex],Productos:(lines.length?lines:['-']).join('\n'),Notas:v('notes')||'-',Idioma:L,message:body};
 if(/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em))payload.email=em;
 qsend.disabled=true;qsend.textContent=es?'Enviando…':'Sending…';
 fetch('https://formspree.io/f/xwloqjjw',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
