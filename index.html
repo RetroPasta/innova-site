@@ -103,45 +103,93 @@ table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:10px;bord
 
 <script>
 const CATS=[
-{id:'inc',i:'🩲',es:'Incontinencia',en:'Incontinence',ses:'Pañales, protectores, toallitas',sen:'Briefs, underpads, wipes',p:[
- {es:'Pañal adulto con cintas',en:'Adult brief with tabs',s:['S','M','L','XL'],k:['Caja 4×18','Caja 6×12'],sku:'INC-BR-001'},
- {es:'Protector de cama desechable',en:'Disposable underpad',s:['23×36','30×30','30×36'],k:['Caja 150','Caja 100'],sku:'INC-UP-002'},
- {es:'Toallitas húmedas para adultos',en:'Adult wet wipes',s:['8×12'],k:['Caja 12×48'],sku:'INC-WW-003'},
- {es:'Paños de baño desechables',en:'Disposable washcloths',s:['10×13'],k:['Caja 500'],sku:'INC-WC-004'}]},
-{id:'ppe',i:'🧤',es:'Guantes y protección',en:'Gloves & PPE',ses:'Nitrilo, batas de aislamiento',sen:'Nitrile, isolation gowns',p:[
- {es:'Guantes de nitrilo sin polvo',en:'Powder-free nitrile gloves',s:['S','M','L','XL'],k:['Caja 10×100'],sku:'PPE-NG-010'},
- {es:'Bata de aislamiento',en:'Isolation gown',s:['Universal','XL'],k:['Caja 50','Caja 100'],sku:'PPE-IG-011'}]},
-{id:'wound',i:'🩹',es:'Heridas y ostomía',en:'Wound & ostomy care',ses:'Gasas, úlceras, colostomía',sen:'Gauze, ulcer care, ostomy',p:[
- {es:'Gasa estéril 4×4',en:'Sterile gauze 4×4',s:['4×4','2×2'],k:['Caja 25×2','Caja 100'],sku:'WND-GZ-020'},
- {es:'Esponja no tejida',en:'Non-woven sponge',s:['4×4','2×2'],k:['Paquete 200'],sku:'WND-SP-021'},
- {es:'Apósito de espuma para úlceras',en:'Foam dressing for ulcers',s:['4×4','6×6'],k:['Caja 10'],sku:'WND-FD-022'},
- {es:'Bolsa de colostomía drenable',en:'Drainable ostomy pouch',s:['Corte 57mm','Corte 70mm'],k:['Caja 10'],sku:'WND-OS-023'}]},
-{id:'mob',i:'♿',es:'Sillas de ruedas',en:'Wheelchairs',ses:'Estándar y livianas',sen:'Standard and lightweight',p:[
- {es:'Silla de ruedas estándar 18"',en:'Standard wheelchair 18"',s:['16"','18"','20"'],k:['Unidad'],sku:'MOB-WC-030'},
- {es:'Silla de ruedas liviana',en:'Lightweight wheelchair',s:['18"'],k:['Unidad'],sku:'MOB-WC-031'}]},
-{id:'bath',i:'🚿',es:'Sillas de baño',en:'Shower chairs',ses:'Con y sin espaldar',sen:'With or without back',p:[
- {es:'Silla de baño con espaldar',en:'Shower chair with back',s:['Estándar'],k:['Unidad','Caja 2'],sku:'BTH-SC-040'},
- {es:'Banco de transferencia',en:'Transfer bench',s:['Estándar'],k:['Unidad'],sku:'BTH-TB-041'}]},
-{id:'exam',i:'🛏️',es:'Mesas y papel de examen',en:'Exam tables & paper',ses:'Mesas, papel crepé',sen:'Tables, crepe paper',p:[
- {es:'Mesa de examen',en:'Exam table',s:['Estándar'],k:['Unidad'],sku:'EXM-TB-050'},
- {es:'Papel para mesa de examen',en:'Exam table paper',s:['18"','21"'],k:['Caja 12 rollos'],sku:'EXM-PP-051'}]},
-{id:'diag',i:'🩺',es:'Diagnóstico',en:'Diagnostics',ses:'Estetoscopios, esfigmomanómetros',sen:'Stethoscopes, BP cuffs',p:[
- {es:'Estetoscopio de doble campana',en:'Dual-head stethoscope',s:['Adulto','Pediátrico'],k:['Unidad'],sku:'DGN-ST-060'},
- {es:'Esfigmomanómetro aneroide',en:'Aneroid BP cuff',s:['Adulto','Adulto grande'],k:['Unidad'],sku:'DGN-BP-061'}]},
-{id:'scale',i:'⚖️',es:'Balanzas',en:'Scales',ses:'Digitales y de pedestal',sen:'Digital and column',p:[
- {es:'Balanza digital de piso',en:'Digital floor scale',s:['Hasta 400 lb'],k:['Unidad'],sku:'SCL-DF-070'},
- {es:'Balanza de pedestal con estadiómetro',en:'Column scale with height rod',s:['Hasta 500 lb'],k:['Unidad'],sku:'SCL-CL-071'}]}];
+{id:'ppe',i:'🧤',es:'Guantes y protección',en:'Gloves & PPE',ses:'Guantes, mascarillas, batas, desinfectante',sen:'Gloves, masks, gowns, sanitizer',p:[
+ {es:'Guantes de examen de nitrilo, sin polvo',en:'Nitrile exam gloves, powder-free',s:['XS','S','M','L','XL'],k:{es:['Caja de 100','Caja grande 10×100','Caja de 200'],en:['Box of 100','Case 10×100','Box of 200']},sku:'PPE-NG-010',kw:'guantes nitrilo examen sin polvo azul gloves nitrile exam powder free latex free'},
+ {es:'Guantes de vinilo, sin polvo',en:'Vinyl exam gloves, powder-free',s:['S','M','L','XL'],k:{es:['Caja de 100','Caja grande 10×100'],en:['Box of 100','Case 10×100']},sku:'PPE-VG-020',kw:'guantes vinilo desechables baratos gloves vinyl disposable food'},
+ {es:'Guantes de examen de látex, sin polvo',en:'Latex exam gloves, powder-free',s:['XS','S','M','L','XL'],k:{es:['Caja de 100','Caja grande 10×100'],en:['Box of 100','Case 10×100']},sku:'PPE-LG-030',kw:'guantes latex examen gloves latex exam'},
+ {es:'Guantes estériles de látex',en:'Sterile latex surgical gloves',s:['6.0','6.5','7.0','7.5','8.0','8.5','9.0'],k:{es:['Caja de 50 pares','Caja grande 4×50 pares'],en:['Box of 50 pairs','Case 4×50 pairs']},sku:'PPE-ST-040',kw:'guantes esteriles quirurgicos sterile gloves surgical'},
+ {es:'Mascarilla de procedimiento con elástico',en:'Procedure face mask, ear loop',s:{es:['Azul'],en:['Blue']},k:{es:['Caja de 50','Caja grande (4 a 12 cajas)'],en:['Box of 50','Case (4 to 12 boxes)']},sku:'PPE-FM-050',kw:'mascarilla tapaboca mascara mask face mask procedure ear loop'},
+ {es:'Respirador N95',en:'N95 respirator mask',s:{es:['Moldeado','Plegado'],en:['Molded','Flat-fold']},k:{es:['Caja de 20','Caja grande 12×20'],en:['Box of 20','Case 12×20']},sku:'PPE-N95-060',kw:'n95 respirador mascarilla respirator mask'},
+ {es:'Bata de aislamiento desechable',en:'Disposable isolation gown',s:['Universal','S','2XL','7XL'],k:{es:['Paquete de 5','Caja 10×5'],en:['Pack of 5','Case 10×5']},sku:'PPE-IG-070',kw:'bata aislamiento gown isolation desechable amarilla proteccion ppe'},
+ {es:'Delantal plástico desechable',en:'Disposable plastic apron',s:['24″ × 42″'],k:{es:['Caja de 100','Caja grande 10×100'],en:['Box of 100','Case 10×100']},sku:'PPE-AP-080',kw:'delantal plastico apron polietileno'},
+ {es:'Babero para adulto desechable',en:'Adult disposable lap bib',s:{es:['16″ × 33″ con lazos','16″ × 33″ por la cabeza'],en:['16″ × 33″ tie-back','16″ × 33″ slip-on']},k:{es:['Caja de 300'],en:['Case of 300']},sku:'PPE-BB-090',kw:'babero adulto bib comida clothing protector'},
+ {es:'Desinfectante de manos',en:'Hand sanitizer',s:{es:['1 oz','2 oz','4 oz','8 oz','Sobres'],en:['1 oz','2 oz','4 oz','8 oz','Packets']},k:{es:['Caja de 24 a 48'],en:['Case of 24 to 48']},sku:'PPE-HS-100',kw:'desinfectante gel alcohol manos sanitizer hand gel higiene'},
+ {es:'Toallitas desinfectantes de manos',en:'Hand sanitizer wipes',s:{es:['Envase de 135'],en:['Canister of 135']},k:{es:['Caja de 12 envases'],en:['Case of 12 canisters']},sku:'PPE-SW-110',kw:'toallitas desinfectantes wipes sanitizer higiene manos'}]},
+{id:'inc',i:'🩲',es:'Incontinencia',en:'Incontinence',ses:'Pañales, empapadores, toallitas',sen:'Briefs, underpads, wipes',p:[
+ {es:'Pañal adulto con cintas',en:'Adult brief with tabs',s:['S','M','L','XL'],k:{es:['Caja 4×18','Caja 6×12'],en:['Case 4×18','Case 6×12']},sku:'INC-BR-001',kw:'panal panales adulto diaper diapers brief pull up incontinencia'},
+ {es:'Empapadores desechables',en:'Disposable underpads',s:['17×24','23×24','23×36','30×30','30×36'],k:{es:['Paquete de 50 a 100','Caja de 2 a 3 paquetes'],en:['Pack of 50 to 100','Case of 2 to 3 packs']},sku:'INC-UP-200',kw:'empapadores protectores de cama chucks chux underpads bed pads absorbente'},
+ {es:'Toallas para incontinencia leve',en:'Incontinence liners',s:['4×11','6×17'],k:{es:['Paquete de 25','Caja 10×25'],en:['Pack of 25','Case 10×25']},sku:'INC-PL-210',kw:'toallas protectores liners panty liner incontinencia leve'},
+ {es:'Toallitas húmedas para adultos',en:'Adult premoistened washcloths',s:['9×13'],k:{es:['Envase de 46 a 64','Caja de 8 a 12 envases'],en:['Pack of 46 to 64','Case of 8 to 12 packs']},sku:'INC-WW-220',kw:'toallitas humedas wipes adulto washcloths limpieza'},
+ {es:'Toallitas desechables por inodoro',en:'Flushable wipes',s:{es:['Adulto 9×13'],en:['Adult 9×13']},k:{es:['Paquete de 24 a 60'],en:['Pack of 24 to 60']},sku:'INC-FW-230',kw:'toallitas flushable inodoro wipes'},
+ {es:'Paños secos de limpieza personal',en:'Dry personal care washcloths',s:['10×13','12×13'],k:{es:['Paquete de 50','Caja de 10 a 16 paquetes'],en:['Pack of 50','Case of 10 to 16 packs']},sku:'INC-DW-240',kw:'panos secos toallas secas dry wipes washcloths'},
+ {es:'Limpiador perineal sin enjuague',en:'Perineal wash, no-rinse',s:{es:['8 oz','Galón'],en:['8 oz','Gallon']},k:{es:['Caja de 48 (8 oz)','Caja de 4 (galón)'],en:['Case of 48 (8 oz)','Case of 4 (gallon)']},sku:'INC-PW-250',kw:'limpiador perineal perineal wash no rinse incontinencia'},
+ {es:'Paquete de baño en cama',en:'Patient bath pack',s:{es:['8 toallas por paquete'],en:['8 cloths per pack']},k:{es:['Caja de 24 paquetes'],en:['Case of 24 packs']},sku:'INC-BP-260',kw:'bano en cama bath pack bed bath toallas calientes'}]},
+{id:'skin',i:'🧴',es:'Cuidado de la piel',en:'Skin care',ses:'Cremas barrera, zinc, lociones',sen:'Barrier creams, zinc, lotions',p:[
+ {es:'Crema barrera de humedad',en:'Moisture barrier cream',s:{es:['Tubo 4 oz','Pote'],en:['4 oz tube','Jar']},k:{es:['Caja de 12 a 24'],en:['Case of 12 to 24']},sku:'SKN-BC-300',kw:'crema barrera panalitis barrier cream zinc rozaduras'},
+ {es:'Ungüento de vitaminas A y D',en:'Vitamin A&D ointment',s:{es:['Sobre 5 g','Tubo 1 a 4 oz','Pote 15 oz'],en:['5 g packet','1 to 4 oz tube','15 oz jar']},k:{es:['Caja de 144 sobres','Caja de 12 a 72 tubos'],en:['Box of 144 packets','Case of 12 to 72 tubes']},sku:'SKN-AD-310',kw:'vitamina a d unguento ointment a&d'},
+ {es:'Ungüento de óxido de zinc',en:'Zinc oxide ointment',s:{es:['Tubo 1 a 2 oz','Pote 15 oz'],en:['1 to 2 oz tube','15 oz jar']},k:{es:['Caja de 12 a 72'],en:['Case of 12 to 72']},sku:'SKN-ZO-320',kw:'zinc oxido de zinc zinc oxide ointment'},
+ {es:'Petrolato blanco (vaselina)',en:'White petrolatum',s:{es:['Sobre','Tubo','Pote'],en:['Packet','Tube','Jar']},k:{es:['Varía'],en:['Varies']},sku:'SKN-PJ-330',kw:'vaselina petrolato petroleum jelly vaseline'},
+ {es:'Loción de manos y cuerpo',en:'Hand and body lotion',s:{es:['4 oz','8 oz','Galón'],en:['4 oz','8 oz','Gallon']},k:{es:['Caja de 4 a 96'],en:['Case of 4 to 96']},sku:'SKN-LO-340',kw:'locion crema lotion body lotion aloe'},
+ {es:'Crema antifúngica (clotrimazol 1%)',en:'Antifungal cream (clotrimazole 1%)',s:{es:['Tubo 1 oz','Tubo 4 oz'],en:['1 oz tube','4 oz tube']},k:{es:['Caja de 24 a 72'],en:['Case of 24 to 72']},sku:'SKN-AF-350',kw:'antifungico hongos clotrimazol antifungal cream'}]},
+{id:'hyg',i:'🪥',es:'Higiene personal',en:'Personal hygiene',ses:'Champú, cuidado oral, afeitado',sen:'Shampoo, oral care, shaving',p:[
+ {es:'Champú y jabón corporal',en:'Shampoo and body wash',s:{es:['8 oz','Galón'],en:['8 oz','Gallon']},k:{es:['Caja de 48 (8 oz)','Caja de 4 (galón)'],en:['Case of 48 (8 oz)','Case of 4 (gallon)']},sku:'HYG-SB-400',kw:'champu jabon body wash shampoo bano'},
+ {es:'Champú sin enjuague',en:'No-rinse shampoo',s:['8 oz'],k:{es:['Caja de 48'],en:['Case of 48']},sku:'HYG-NR-410',kw:'champu sin enjuague no rinse shampoo encamados'},
+ {es:'Hisopos orales (esponjitas)',en:'Oral swabsticks',s:{es:['Con sabor','Sin sabor'],en:['Flavored','Unflavored']},k:{es:['Caja de 250'],en:['Box of 250']},sku:'HYG-OR-420',kw:'hisopos orales esponjitas toothettes oral swabs boca'},
+ {es:'Cepillos y pasta de dientes',en:'Toothbrushes and toothpaste',s:{es:['Cepillo suave','Pasta 1.5 oz','Pasta 2.75 oz'],en:['Soft toothbrush','1.5 oz toothpaste','2.75 oz toothpaste']},k:{es:['Caja de 144'],en:['Case of 144']},sku:'HYG-TB-430',kw:'cepillo pasta de dientes toothbrush toothpaste'},
+ {es:'Enjuague bucal',en:'Mouthwash',s:['4 oz','16 oz'],k:{es:['Caja de 12 a 96'],en:['Case of 12 to 96']},sku:'HYG-MW-440',kw:'enjuague bucal mouthwash'},
+ {es:'Rasuradoras desechables y crema de afeitar',en:'Disposable razors and shaving cream',s:{es:['Doble hoja'],en:['Twin blade']},k:{es:['Caja de 50'],en:['Box of 50']},sku:'HYG-RZ-450',kw:'rasuradora afeitar razor shaving'},
+ {es:'Pañuelos faciales',en:'Facial tissues',s:{es:['40 hojas','100 hojas'],en:['40 sheets','100 sheets']},k:{es:['Caja de 30 a 200 cajitas'],en:['Case of 30 to 200 boxes']},sku:'HYG-TS-460',kw:'panuelos kleenex tissue facial'}]},
+{id:'bed',i:'🛏️',es:'Artículos de cama',en:'Bedside supplies',ses:'Cómodos, orinales, palanganas',sen:'Bedpans, urinals, basins',p:[
+ {es:'Cómodo (bedpan)',en:'Bedpan',s:{es:['Regular','De fractura'],en:['Regular','Fracture']},k:{es:['Caja de 50'],en:['Case of 50']},sku:'BED-BP-500',kw:'comodo bedpan pato fractura'},
+ {es:'Orinal masculino',en:'Male urinal',s:{es:['Con medidas'],en:['Graduated']},k:{es:['Caja'],en:['Case']},sku:'BED-UR-510',kw:'orinal urinal pato hombre'},
+ {es:'Palangana de baño',en:'Wash basin',s:{es:['5 qt redonda','7.4 qt rectangular'],en:['5 qt round','7.4 qt rectangular']},k:{es:['Caja de 50'],en:['Case of 50']},sku:'BED-WB-520',kw:'palangana ponchera wash basin'},
+ {es:'Riñonera (emesis)',en:'Emesis basin',s:['500 cc'],k:{es:['Caja'],en:['Case']},sku:'BED-EB-530',kw:'rinonera emesis vomito'},
+ {es:'Jarra con tapa',en:'Water pitcher with lid',s:['32 oz','34 oz'],k:{es:['Caja'],en:['Case']},sku:'BED-PC-540',kw:'jarra pitcher agua carafe'},
+ {es:'Vaso para dentadura',en:'Denture cup',s:{es:['Con tapa'],en:['With lid']},k:{es:['Caja de 250'],en:['Case of 250']},sku:'BED-DC-550',kw:'vaso dentadura denture cup'}]},
+{id:'din',i:'🥤',es:'Comedor y medicamentos',en:'Dining & medication',ses:'Vasos, sorbetos, vasitos',sen:'Cups, straws, medicine cups',p:[
+ {es:'Vasos plásticos y de papel',en:'Drinking cups',s:['3 oz','5 oz','7 oz','9 oz'],k:{es:['Manga de 100','Caja 25×100'],en:['Sleeve of 100','Case 25×100']},sku:'DIN-CP-600',kw:'vasos cups plasticos papel'},
+ {es:'Sorbetos flexibles',en:'Flex straws',s:['7¾″'],k:{es:['Caja de 400','Caja grande 25×400'],en:['Box of 400','Case 25×400']},sku:'DIN-ST-610',kw:'sorbetos pajillas straws'},
+ {es:'Vasitos para medicamentos',en:'Medicine cups',s:{es:['Plástico 1 oz','Papel 0.5 a 1 oz'],en:['1 oz plastic','0.5 to 1 oz paper']},k:{es:['Manga de 100 a 250'],en:['Sleeve of 100 to 250']},sku:'DIN-MC-620',kw:'vasitos medicina medicine cups souffle'},
+ {es:'Triturador de pastillas y bolsitas',en:'Pill crusher and pouches',s:{es:['Bolsitas 2×4.5'],en:['2×4.5 pouches']},k:{es:['Paquete de 50'],en:['Pack of 50']},sku:'DIN-PC-630',kw:'triturador pastillas pill crusher'}]},
+{id:'wound',i:'🩹',es:'Curaciones',en:'Wound care',ses:'Gasas, apósitos, vendas, cintas',sen:'Gauze, dressings, bandages, tape',p:[
+ {es:'Gasas (estériles y no estériles)',en:'Gauze sponges (sterile & non-sterile)',s:['2×2','3×3','4×4'],k:{es:['Manga de 200 (no estéril)','Caja estéril (varía)'],en:['Sleeve of 200 (non-sterile)','Sterile box (varies)']},sku:'WND-GZ-700',kw:'gasa gauze 4x4 2x2 curacion'},
+ {es:'Apósitos no adherentes',en:'Non-adherent pads',s:['2×3','3×4','3×8'],k:{es:['Caja de 50 a 100'],en:['Box of 50 to 100']},sku:'WND-NA-710',kw:'aposito no adherente telfa non adherent pad'},
+ {es:'Apósitos combinados (ABD)',en:'Combine (ABD) pads',s:['5×9','8×7.5','8×10'],k:{es:['Varía'],en:['Varies']},sku:'WND-CP-720',kw:'abd combine aposito grande'},
+ {es:'Apósito de espuma',en:'Foam dressing',s:['4×4','6×6'],k:{es:['Caja de 10'],en:['Box of 10']},sku:'WND-FD-022',kw:'ulcera ulcer bedsore llaga escara aposito dressing foam espuma'},
+ {es:'Apósito hidrocoloide',en:'Hydrocolloid dressing',s:['4×4','6×6'],k:{es:['Caja de 5 a 10'],en:['Box of 5 to 10']},sku:'WND-HC-780',kw:'hidrocoloide hydrocolloid aposito dressing ulcera llaga escara'},
+ {es:'Apósito de película transparente',en:'Transparent film dressing',s:['2⅜×2¾','4×4¾','6×8'],k:{es:['Caja de 50 a 100'],en:['Box of 50 to 100']},sku:'WND-TF-790',kw:'pelicula transparente film dressing aposito transparente'},
+ {es:'Esparadrapo / cinta quirúrgica',en:'Surgical tape',s:{es:['Papel','Tela','Transparente'],en:['Paper','Cloth','Clear']},k:{es:['½″ a 3″ (varía)'],en:['½″ to 3″ (varies)']},sku:'WND-TP-730',kw:'esparadrapo tape cinta papel tela transparente'},
+ {es:'Curitas (vendajes adhesivos)',en:'Adhesive bandages',s:{es:['Varios tamaños'],en:['Assorted sizes']},k:{es:['Caja'],en:['Box']},sku:'WND-AB-740',kw:'curitas band aid adhesive bandage'},
+ {es:'Vendas elásticas',en:'Elastic bandages',s:['2″','3″','4″','6″'],k:{es:['Caja'],en:['Box']},sku:'WND-EB-750',kw:'venda elastica ace elastic bandage'},
+ {es:'Almohadillas de alcohol',en:'Alcohol prep pads',s:{es:['Medianas','Grandes'],en:['Medium','Large']},k:{es:['Caja de 100 a 200'],en:['Box of 100 to 200']},sku:'WND-AP-760',kw:'alcohol prep pads toallitas alcohol'},
+ {es:'Aplicadores y bolas de algodón',en:'Cotton-tipped applicators and cotton balls',s:['3″','6″'],k:{es:['Caja de 1,000'],en:['Box of 1,000']},sku:'WND-CA-770',kw:'aplicadores algodon q-tips cotton balls'}]},
+{id:'diag',i:'🩺',es:'Diagnóstico',en:'Diagnostics',ses:'Termómetros, presión, oxímetros',sen:'Thermometers, BP cuffs, oximeters',p:[
+ {es:'Termómetro digital y fundas',en:'Digital thermometer and probe covers',s:{es:['Punta flexible'],en:['Flexible tip']},k:{es:['Termómetro','Fundas (100)'],en:['Thermometer','Probe covers (100)']},sku:'DX-TH-800',kw:'termometro thermometer fiebre fundas'},
+ {es:'Esfigmomanómetro (manual de presión)',en:'Blood pressure cuff',s:{es:['Adulto','Adulto grande','Muslo'],en:['Adult','Large adult','Thigh']},k:{es:['Unidad'],en:['Each']},sku:'DX-BP-810',kw:'presion esfigmomanometro tensiometro blood pressure bp cuff'},
+ {es:'Oxímetro de pulso',en:'Pulse oximeter',s:{es:['De dedo'],en:['Fingertip']},k:{es:['Unidad'],en:['Each']},sku:'DX-PO-820',kw:'oximetro pulse oximeter saturacion oxigeno'},
+ {es:'Estetoscopio',en:'Stethoscope',s:{es:['Una cabeza','Dos cabezas'],en:['Single head','Dual head']},k:{es:['Unidad'],en:['Each']},sku:'DX-SS-830',kw:'estetoscopio stethoscope'}]},
+{id:'saf',i:'🦺',es:'Seguridad del paciente',en:'Patient safety',ses:'Cinturones, medias, bolsas',sen:'Gait belts, socks, bags',p:[
+ {es:'Cinturón de marcha (gait belt)',en:'Gait belt',s:['60″ × 2″'],k:{es:['Unidad'],en:['Each']},sku:'SAF-GB-900',kw:'cinturon gait belt transferencia caidas'},
+ {es:'Medias antideslizantes',en:'Non-skid slipper socks',s:['S','M','L','XL','2XL','3XL','4XL'],k:{es:['1 par','Caja de 48 pares'],en:['1 pair','Case of 48 pairs']},sku:'SAF-SS-910',kw:'medias antideslizantes slipper socks caidas'},
+ {es:'Bolsas de pertenencias del paciente',en:'Patient belongings bags',s:['16×18','20×20'],k:{es:['Caja de 250'],en:['Case of 250']},sku:'SAF-BG-920',kw:'bolsas pertenencias belongings bags'}]},
+{id:'equip',i:'♿',es:'Equipo médico',en:'Medical equipment',ses:'Sillas de ruedas, sillas de baño, balanzas',sen:'Wheelchairs, shower chairs, scales',p:[
+ {es:'Silla de ruedas estándar',en:'Standard wheelchair',s:['16″','18″','20″'],k:{es:['Unidad'],en:['Each']},sku:'MOB-WC-030',kw:'silla wheelchair ruedas'},
+ {es:'Silla de ruedas liviana',en:'Lightweight wheelchair',s:['18″'],k:{es:['Unidad'],en:['Each']},sku:'MOB-WC-031',kw:'silla wheelchair liviana ruedas'},
+ {es:'Silla de baño con espaldar',en:'Shower chair with back',s:{es:['Estándar'],en:['Standard']},k:{es:['Unidad','Caja de 2'],en:['Each','Case of 2']},sku:'BTH-SC-040',kw:'silla ducha shower bano bath'},
+ {es:'Banco de transferencia',en:'Transfer bench',s:{es:['Estándar'],en:['Standard']},k:{es:['Unidad'],en:['Each']},sku:'BTH-TB-041',kw:'banco ducha bench tub bano transferencia'},
+ {es:'Balanza digital de piso',en:'Digital floor scale',s:{es:['Hasta 400 lb'],en:['Up to 400 lb']},k:{es:['Unidad'],en:['Each']},sku:'SCL-DF-070',kw:'balanza bascula scale peso weight'},
+ {es:'Balanza de pedestal con estadiómetro',en:'Column scale with height rod',s:{es:['Hasta 500 lb'],en:['Up to 500 lb']},k:{es:['Unidad'],en:['Each']},sku:'SCL-CL-071',kw:'balanza bascula scale peso weight pedestal'}]}];
 const FT={es:['Hogar de cuidado','Hogar sustituto','Centro de cuidado diurno para adultos (CAMPEA)','Agencia de cuidado en el hogar','Hospicio','Centro de diálisis','Tienda de efectos médicos','Otro'],en:['Care home (hogar de cuidado)','Substitute home (hogar sustituto)','Adult day center (CAMPEA)','Home-care agency','Hospice','Dialysis center','Medical supply store','Other']};
 const FQ={es:['Semanal','Cada 2 semanas','Mensual','Una sola vez'],en:['Weekly','Every 2 weeks','Monthly','One time']};
 const MUN=['Adjuntas','Aguada','Aguadilla','Aguas Buenas','Aibonito','Añasco','Arecibo','Arroyo','Barceloneta','Barranquitas','Bayamón','Cabo Rojo','Caguas','Camuy','Canóvanas','Carolina','Cataño','Cayey','Ceiba','Ciales','Cidra','Coamo','Comerío','Corozal','Culebra','Dorado','Fajardo','Florida','Guánica','Guayama','Guayanilla','Guaynabo','Gurabo','Hatillo','Hormigueros','Humacao','Isabela','Jayuya','Juana Díaz','Juncos','Lajas','Lares','Las Marías','Las Piedras','Loíza','Luquillo','Manatí','Maricao','Maunabo','Mayagüez','Moca','Morovis','Naguabo','Naranjito','Orocovis','Patillas','Peñuelas','Ponce','Quebradillas','Rincón','Río Grande','Sabana Grande','Salinas','San Germán','San Juan','San Lorenzo','San Sebastián','Santa Isabel','Toa Alta','Toa Baja','Trujillo Alto','Utuado','Vega Alta','Vega Baja','Vieques','Villalba','Yabucoa','Yauco'];
-let L='es',Q=JSON.parse(localStorage.getItem('innovaQ')||'[]'),curCat='inc',curP=null,selS=null,selK=null;
+let L='es',Q=JSON.parse(localStorage.getItem('innovaQ')||'[]').filter(r=>{const c=CATS.find(x=>x.id===r.c);return c&&c.p[r.p]}),curCat='ppe',curP=null,selS=null,selK=null;
 const t=o=>o[L];
 
-const KW={'INC-BR-001':'diaper diapers panal panales pull up adulto','INC-UP-002':'chux pad bed pad underpads empapador protector cama','INC-WW-003':'toallitas wipes humedas','INC-WC-004':'paños washcloth toallas','PPE-NG-010':'guantes gloves latex free exam','PPE-IG-011':'gown bata isolation proteccion ppe','WND-GZ-020':'gasa gauze curita','WND-SP-021':'esponja gasa sponge','WND-FD-022':'ulcera ulcer bedsore llaga escara apósito dressing foam','WND-OS-023':'colostomia colostomy bolsa pouch','MOB-WC-030':'silla wheelchair ruedas','MOB-WC-031':'silla wheelchair liviana ruedas','BTH-SC-040':'ducha shower bano bath','BTH-TB-041':'banco ducha bench tub bano','EXM-TB-050':'camilla table examen','EXM-PP-051':'papel crepe paper roll','DGN-ST-060':'estetoscopio stethoscope','DGN-BP-061':'presion blood pressure bp cuff esfigmomanometro tensiometro','SCL-DF-070':'balanza bascula scale peso weight','SCL-CL-071':'balanza bascula scale peso weight pedestal'};
+const S=p=>Array.isArray(p.s)?p.s:p.s[L],K=p=>Array.isArray(p.k)?p.k:p.k[L];
 const nrm=x=>(x||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 let SH=[],SI=-1;
 function srch(){const q=nrm(sq.value).trim();if(!q){sres.classList.remove('on');return}
-const terms=q.split(/\s+/);SH=[];CATS.forEach(c=>c.p.forEach((p,i)=>{const hay=nrm([p.es,p.en,p.sku,c.es,c.en,KW[p.sku]||'',c.d?c.d.es:'',c.d?c.d.en:'',...p.s,...p.k].join(' '));if(terms.every(w=>hay.includes(w)))SH.push([c,p,i])}));SI=-1;
+const terms=q.split(/\s+/);SH=[];CATS.forEach(c=>c.p.forEach((p,i)=>{const hay=nrm([p.es,p.en,p.sku,c.es,c.en,p.kw||'',c.d?c.d.es:'',c.d?c.d.en:'',...S(p),...K(p),...(Array.isArray(p.s)?[]:p.s.es.concat(p.s.en)),...(Array.isArray(p.k)?[]:p.k.es.concat(p.k.en))].join(' '));if(terms.every(w=>hay.includes(w)))SH.push([c,p,i])}));SI=-1;
 sres.innerHTML=SH.length?SH.slice(0,12).map(([c,p,i],n)=>`<a href="#" data-n="${n}" onmousedown="event.preventDefault();spick(${n})"><img src="img/${p.sku}.jpg" alt=""><span><b>${t(p)}</b><small>${t(c)} · ${p.sku}</small></span></a>`).join(''):`<div class="none">${L==='es'?'No encontramos productos. Escríbalo en Notas de su cotización y lo buscamos.':'No products found. Add it to your quote Notes and we will source it.'}</div>`;sres.classList.add('on')}
 function spick(n){const [c,p,i]=SH[n];sres.classList.remove('on');sq.value='';sq.blur();showP(c.id,i)}
 function skey(e){const a=[...sres.querySelectorAll('a')];if(e.key==='Escape'){sres.classList.remove('on');sq.blur();return}
@@ -153,12 +201,12 @@ function go(v,anchor){document.querySelectorAll('.view').forEach(e=>e.classList.
 function im(sku,alt){return `<img src="img/${sku}.jpg" alt="${alt||''}" loading="lazy">`}
 function ph(i,label){return `<b>${i}</b>${label||(L==='es'?'Foto próximamente':'Photo coming soon')}`}
 function showCat(id){curCat=id;const c=CATS.find(x=>x.id===id);catTitle.textContent=t(c);catSel.innerHTML=CATS.map(x=>`<option value="${x.id}" ${x.id===id?'selected':''}>${t(x)}</option>`).join('');
-plist.innerHTML=c.p.map((p,i)=>`<div class="prod"><div class="ph im" style="cursor:pointer" onclick="showP('${id}',${i})">${im(p.sku,t(p))}</div><div class="b"><h4 style="cursor:pointer" onclick="showP('${id}',${i})">${t(p)}</h4><div class="meta">SKU ${p.sku} · ${L==='es'?'Marca al cotizar':'Brand on quote'}</div><div class="price">${L==='es'?'Precio por cotización':'Price on quote'}</div><div class="row"><select id="s${i}">${p.s.map(s=>`<option>${s}</option>`).join('')}</select><input class="qty" type="number" id="q${i}" value="10"><button class="btn t" style="padding:9px 12px" onclick="add('${id}',${i},s${i}.value,'${p.k[0]}',+q${i}.value)">+</button></div></div></div>`).join('')}
-function showP(c,i){curCat=c;curP=i;const C=CATS.find(x=>x.id===c),p=C.p[i];selS=p.s[0];selK=p.k[0];go('product')}
+plist.innerHTML=c.p.map((p,i)=>`<div class="prod"><div class="ph im" style="cursor:pointer" onclick="showP('${id}',${i})">${im(p.sku,t(p))}</div><div class="b"><h4 style="cursor:pointer" onclick="showP('${id}',${i})">${t(p)}</h4><div class="meta">SKU ${p.sku} · ${L==='es'?'Marca al cotizar':'Brand on quote'}</div><div class="price">${L==='es'?'Precio por cotización':'Price on quote'}</div><div class="row"><select id="s${i}">${S(p).map(s=>`<option>${s}</option>`).join('')}</select><input class="qty" type="number" id="q${i}" value="10"><button class="btn t" style="padding:9px 12px" onclick="add('${id}',${i},s${i}.value,K(CATS.find(x=>x.id==='${id}').p[${i}])[0],+q${i}.value)">+</button></div></div></div>`).join('')}
+function showP(c,i){curCat=c;curP=i;const C=CATS.find(x=>x.id===c),p=C.p[i];selS=0;selK=0;go('product')}
 function renderP(){if(curP===null)return;const C=CATS.find(x=>x.id===curCat),p=C.p[curP];pcrumb.textContent=(L==='es'?'Inicio › Catálogo › ':'Home › Catalog › ')+t(C);pimg.className='ph im';pimg.innerHTML=im(p.sku,t(p));pname.textContent=t(p);pmeta.textContent=`SKU ${p.sku} · ${L==='es'?'Marca al cotizar':'Brand on quote'}`;
 pdesc.textContent=L==='es'?'Elija tamaño, empaque y cantidad, y añádalo a su cotización. Le confirmamos marca, especificaciones y precio por volumen al cotizar.':'Pick a size, pack, and quantity, and add it to your quote. We confirm brand, specs, and volume pricing with your quote.';
-psizes.innerHTML=p.s.map(s=>`<span class="chip ${s===selS?'on':''}" onclick="selS='${s}';renderP()">${s}</span>`).join('');ppacks.innerHTML=p.k.map(k=>`<span class="chip ${k===selK?'on':''}" onclick="selK='${k}';renderP()">${k}</span>`).join('')}
-function addFromPD(){add(curCat,curP,selS,selK,+pqty.value)}
+psizes.innerHTML=S(p).map((s,n)=>`<span class="chip ${n===selS?'on':''}" onclick="selS=${n};renderP()">${s}</span>`).join('');ppacks.innerHTML=K(p).map((k,n)=>`<span class="chip ${n===selK?'on':''}" onclick="selK=${n};renderP()">${k}</span>`).join('')}
+function addFromPD(){const p=CATS.find(x=>x.id===curCat).p[curP];add(curCat,curP,S(p)[selS],K(p)[selK],+pqty.value)}
 function add(c,p,s,k,q){if(!(q>0))q=1;Q.push({c,p,s,k,q});save();render();const b=document.querySelector('.qbtn');b.style.transform='scale(1.1)';setTimeout(()=>b.style.transform='',200)}
 function save(){localStorage.setItem('innovaQ',JSON.stringify(Q))}
 function render(){qc.textContent=Q.length;cats.innerHTML=CATS.map(c=>`<div class="cat" onclick="curCat='${c.id}';go('cat')"><div class="ph im">${im(c.p[0].sku,t(c))}</div><div class="n">${t(c)}<small>${L==='es'?c.ses:c.sen}</small></div></div>`).join('');
