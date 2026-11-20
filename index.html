@@ -103,7 +103,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:10px;bord
 
 <script>
 const CATS=[
-{id:'ppe',i:'🧤',es:'Guantes y protección',en:'Gloves & PPE',ses:'Guantes, mascarillas, batas, desinfectante',sen:'Gloves, masks, gowns, sanitizer',p:[
+{id:'ppe',i:'🧤',es:'Guantes y protección',en:'Gloves & PPE',ses:'Guantes, mascarillas, batas, gorros, desinfectante',sen:'Gloves, masks, gowns, caps, sanitizer',p:[
  {es:'Guantes de examen de nitrilo, sin polvo',en:'Nitrile exam gloves, powder-free',s:['XS','S','M','L','XL'],k:{es:['Caja de 100','Caja grande 10×100','Caja de 200'],en:['Box of 100','Case 10×100','Box of 200']},sku:'PPE-NG-010',kw:'guantes nitrilo examen sin polvo azul gloves nitrile exam powder free latex free'},
  {es:'Guantes de vinilo, sin polvo',en:'Vinyl exam gloves, powder-free',s:['S','M','L','XL'],k:{es:['Caja de 100','Caja grande 10×100'],en:['Box of 100','Case 10×100']},sku:'PPE-VG-020',kw:'guantes vinilo desechables baratos gloves vinyl disposable food'},
  {es:'Guantes de examen de látex, sin polvo',en:'Latex exam gloves, powder-free',s:['XS','S','M','L','XL'],k:{es:['Caja de 100','Caja grande 10×100'],en:['Box of 100','Case 10×100']},sku:'PPE-LG-030',kw:'guantes latex examen gloves latex exam'},
@@ -114,7 +114,8 @@ const CATS=[
  {es:'Delantal plástico desechable',en:'Disposable plastic apron',s:['24″ × 42″'],k:{es:['Caja de 100','Caja grande 10×100'],en:['Box of 100','Case 10×100']},sku:'PPE-AP-080',kw:'delantal plastico apron polietileno'},
  {es:'Babero para adulto desechable',en:'Adult disposable lap bib',s:{es:['16″ × 33″ con lazos','16″ × 33″ por la cabeza'],en:['16″ × 33″ tie-back','16″ × 33″ slip-on']},k:{es:['Caja de 300'],en:['Case of 300']},sku:'PPE-BB-090',kw:'babero adulto bib comida clothing protector'},
  {es:'Desinfectante de manos',en:'Hand sanitizer',s:{es:['1 oz','2 oz','4 oz','8 oz','Sobres'],en:['1 oz','2 oz','4 oz','8 oz','Packets']},k:{es:['Caja de 24 a 48'],en:['Case of 24 to 48']},sku:'PPE-HS-100',kw:'desinfectante gel alcohol manos sanitizer hand gel higiene'},
- {es:'Toallitas desinfectantes de manos',en:'Hand sanitizer wipes',s:{es:['Envase de 135'],en:['Canister of 135']},k:{es:['Caja de 12 envases'],en:['Case of 12 canisters']},sku:'PPE-SW-110',kw:'toallitas desinfectantes wipes sanitizer higiene manos'}]},
+ {es:'Toallitas desinfectantes de manos',en:'Hand sanitizer wipes',s:{es:['Envase de 135'],en:['Canister of 135']},k:{es:['Caja de 12 envases'],en:['Case of 12 canisters']},sku:'PPE-SW-110',kw:'toallitas desinfectantes wipes sanitizer higiene manos'},
+ {es:'Gorros desechables (bouffant)',en:'Disposable bouffant caps',s:['21″','24″'],k:{es:['Caja de 100','Caja grande 10×100'],en:['Box of 100','Case 10×100']},sku:'PPE-BC-120',kw:'gorros desechables bouffant caps cofia hair net'}]},
 {id:'inc',i:'🩲',es:'Incontinencia',en:'Incontinence',ses:'Pañales, empapadores, toallitas',sen:'Briefs, underpads, wipes',p:[
  {es:'Pañal adulto con cintas',en:'Adult brief with tabs',s:['S','M','L','XL'],k:{es:['Caja 4×18','Caja 6×12'],en:['Case 4×18','Case 6×12']},sku:'INC-BR-001',kw:'panal panales adulto diaper diapers brief pull up incontinencia'},
  {es:'Empapadores desechables',en:'Disposable underpads',s:['17×24','23×24','23×36','30×30','30×36'],k:{es:['Paquete de 50 a 100','Caja de 2 a 3 paquetes'],en:['Pack of 50 to 100','Case of 2 to 3 packs']},sku:'INC-UP-200',kw:'empapadores protectores de cama chucks chux underpads bed pads absorbente'},
@@ -151,7 +152,7 @@ const CATS=[
  {es:'Sorbetos flexibles',en:'Flex straws',s:['7¾″'],k:{es:['Caja de 400','Caja grande 25×400'],en:['Box of 400','Case 25×400']},sku:'DIN-ST-610',kw:'sorbetos pajillas straws'},
  {es:'Vasitos para medicamentos',en:'Medicine cups',s:{es:['Plástico 1 oz','Papel 0.5 a 1 oz'],en:['1 oz plastic','0.5 to 1 oz paper']},k:{es:['Manga de 100 a 250'],en:['Sleeve of 100 to 250']},sku:'DIN-MC-620',kw:'vasitos medicina medicine cups souffle'},
  {es:'Triturador de pastillas y bolsitas',en:'Pill crusher and pouches',s:{es:['Bolsitas 2×4.5'],en:['2×4.5 pouches']},k:{es:['Paquete de 50'],en:['Pack of 50']},sku:'DIN-PC-630',kw:'triturador pastillas pill crusher'}]},
-{id:'wound',i:'🩹',es:'Curaciones',en:'Wound care',ses:'Gasas, apósitos, vendas, cintas',sen:'Gauze, dressings, bandages, tape',p:[
+{id:'wound',i:'🩹',es:'Curaciones',en:'Wound care',ses:'Gasas, apósitos, vendas, agua estéril',sen:'Gauze, dressings, bandages, sterile water',p:[
  {es:'Gasas (estériles y no estériles)',en:'Gauze sponges (sterile & non-sterile)',s:['2×2','3×3','4×4'],k:{es:['Manga de 200 (no estéril)','Caja estéril (varía)'],en:['Sleeve of 200 (non-sterile)','Sterile box (varies)']},sku:'WND-GZ-700',kw:'gasa gauze 4x4 2x2 curacion'},
  {es:'Apósitos no adherentes',en:'Non-adherent pads',s:['2×3','3×4','3×8'],k:{es:['Caja de 50 a 100'],en:['Box of 50 to 100']},sku:'WND-NA-710',kw:'aposito no adherente telfa non adherent pad'},
  {es:'Apósitos combinados (ABD)',en:'Combine (ABD) pads',s:['5×9','8×7.5','8×10'],k:{es:['Varía'],en:['Varies']},sku:'WND-CP-720',kw:'abd combine aposito grande'},
@@ -162,12 +163,22 @@ const CATS=[
  {es:'Curitas (vendajes adhesivos)',en:'Adhesive bandages',s:{es:['Varios tamaños'],en:['Assorted sizes']},k:{es:['Caja'],en:['Box']},sku:'WND-AB-740',kw:'curitas band aid adhesive bandage'},
  {es:'Vendas elásticas',en:'Elastic bandages',s:['2″','3″','4″','6″'],k:{es:['Caja'],en:['Box']},sku:'WND-EB-750',kw:'venda elastica ace elastic bandage'},
  {es:'Almohadillas de alcohol',en:'Alcohol prep pads',s:{es:['Medianas','Grandes'],en:['Medium','Large']},k:{es:['Caja de 100 a 200'],en:['Box of 100 to 200']},sku:'WND-AP-760',kw:'alcohol prep pads toallitas alcohol'},
- {es:'Aplicadores y bolas de algodón',en:'Cotton-tipped applicators and cotton balls',s:['3″','6″'],k:{es:['Caja de 1,000'],en:['Box of 1,000']},sku:'WND-CA-770',kw:'aplicadores algodon q-tips cotton balls'}]},
-{id:'diag',i:'🩺',es:'Diagnóstico',en:'Diagnostics',ses:'Termómetros, presión, oxímetros',sen:'Thermometers, BP cuffs, oximeters',p:[
+ {es:'Aplicadores y bolas de algodón',en:'Cotton-tipped applicators and cotton balls',s:['3″','6″'],k:{es:['Caja de 1,000'],en:['Box of 1,000']},sku:'WND-CA-770',kw:'aplicadores algodon q-tips cotton balls'},
+ {es:'Agua estéril y solución salina',en:'Sterile water and saline',s:{es:['Agua estéril 500 mL','Agua estéril 1,000 mL','Solución salina 0.9% 500 mL','Solución salina 0.9% 1,000 mL'],en:['Sterile water 500 mL','Sterile water 1,000 mL','0.9% saline 500 mL','0.9% saline 1,000 mL']},k:{es:['Unidad','Caja de 4'],en:['Each','Case of 4']},sku:'WND-SW-765',kw:'agua esteril sterile water solucion salina saline irrigacion'}]},
+{id:'fa',i:'⛑️',es:'Primeros auxilios',en:'First aid',ses:'Botiquines, férulas, compresas',sen:'Kits, splints, cold packs',p:[
+ {es:'Botiquín de primeros auxilios',en:'First aid kit',s:{es:['25 personas','50 personas','100 personas'],en:['25-person','50-person','100-person']},k:{es:['Unidad','Recambio'],en:['Each','Refill']},sku:'FA-KT-950',kw:'botiquin primeros auxilios first aid kit recambio refill emergencia'},
+ {es:'Compresa fría',en:'Cold pack',s:{es:['Instantánea','Reutilizable'],en:['Instant','Reusable']},k:{es:['Unidad','Caja de 24'],en:['Each','Case of 24']},sku:'FA-CP-960',kw:'compresa fria instantanea cold pack hielo seco ice pack'},
+ {es:'Férulas',en:'Splints',s:{es:['Dedo','Brazo (tabla)'],en:['Finger','Arm (board)']},k:{es:['Unidad','Caja'],en:['Each','Box']},sku:'FA-SP-970',kw:'ferula ferulas splint finger inmovilizador tabla dedo'},
+ {es:'Collar cervical de foam',en:'Foam cervical collar',s:{es:['Niño','Joven','Adulto'],en:['Child','Youth','Adult']},k:{es:['Unidad'],en:['Each']},sku:'FA-CC-980',kw:'collar cervical foam neck collar inmovilizador cuello'},
+ {es:'Depresores de lengua',en:'Tongue depressors',s:{es:['Junior','Adulto'],en:['Junior','Adult']},k:{es:['Caja de 500'],en:['Box of 500']},sku:'FA-TD-990',kw:'depresores lengua tongue depressors bajalenguas'}]},
+{id:'diag',i:'🩺',es:'Diagnóstico',en:'Diagnostics',ses:'Termómetros, presión, oxímetros, glucómetros',sen:'Thermometers, BP cuffs, oximeters, glucose',p:[
  {es:'Termómetro digital y fundas',en:'Digital thermometer and probe covers',s:{es:['Punta flexible'],en:['Flexible tip']},k:{es:['Termómetro','Fundas (100)'],en:['Thermometer','Probe covers (100)']},sku:'DX-TH-800',kw:'termometro thermometer fiebre fundas'},
  {es:'Esfigmomanómetro (manual de presión)',en:'Blood pressure cuff',s:{es:['Adulto','Adulto grande','Muslo'],en:['Adult','Large adult','Thigh']},k:{es:['Unidad'],en:['Each']},sku:'DX-BP-810',kw:'presion esfigmomanometro tensiometro blood pressure bp cuff'},
  {es:'Oxímetro de pulso',en:'Pulse oximeter',s:{es:['De dedo'],en:['Fingertip']},k:{es:['Unidad'],en:['Each']},sku:'DX-PO-820',kw:'oximetro pulse oximeter saturacion oxigeno'},
- {es:'Estetoscopio',en:'Stethoscope',s:{es:['Una cabeza','Dos cabezas'],en:['Single head','Dual head']},k:{es:['Unidad'],en:['Each']},sku:'DX-SS-830',kw:'estetoscopio stethoscope'}]},
+ {es:'Estetoscopio',en:'Stethoscope',s:{es:['Una cabeza','Dos cabezas'],en:['Single head','Dual head']},k:{es:['Unidad'],en:['Each']},sku:'DX-SS-830',kw:'estetoscopio stethoscope'},
+ {es:'Glucómetro',en:'Glucose meter',s:{es:['Estándar'],en:['Standard']},k:{es:['Unidad'],en:['Each']},sku:'DX-GM-840',kw:'glucometro glucómetro glucose meter medidor azucar diabetes'},
+ {es:'Lancetas',en:'Lancets',s:['28G','30G'],k:{es:['Caja de 100'],en:['Box of 100']},sku:'DX-LC-850',kw:'lancetas lancets glucosa diabetes puncion punción'},
+ {es:'Tirillas de glucosa',en:'Glucose test strips',s:{es:['Compatibles con el glucómetro'],en:['Compatible with the meter']},k:{es:['Caja de 50'],en:['Box of 50']},sku:'DX-GS-860',kw:'tirillas glucosa glucose test strips azucar diabetes'}]},
 {id:'saf',i:'🦺',es:'Seguridad del paciente',en:'Patient safety',ses:'Cinturones, medias, bolsas',sen:'Gait belts, socks, bags',p:[
  {es:'Cinturón de marcha (gait belt)',en:'Gait belt',s:['60″ × 2″'],k:{es:['Unidad'],en:['Each']},sku:'SAF-GB-900',kw:'cinturon gait belt transferencia caidas'},
  {es:'Medias antideslizantes',en:'Non-skid slipper socks',s:['S','M','L','XL','2XL','3XL','4XL'],k:{es:['1 par','Caja de 48 pares'],en:['1 pair','Case of 48 pairs']},sku:'SAF-SS-910',kw:'medias antideslizantes slipper socks caidas'},
